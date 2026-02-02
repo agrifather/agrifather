@@ -1,0 +1,82 @@
+.admin-form-page {
+  min-height: 90vh;
+  padding: 60px 80px;
+  background: #f6f8f5;
+}
+
+.admin-form-page h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.admin-form {
+  background: white;
+  max-width: 700px;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* INPUTS */
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+  border-color: #2e7d32;
+}
+
+/* CHECKBOX */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.admin-form button {
+  margin-top: 10px;
+  padding: 14px;
+  background: #2e7d32;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-form button:hover {
+  background: #1b5e20;
+}
+
+.admin-subtitle {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 500px) {
+  .admin-form-page {
+    padding: 60px 20px;
+  }
+}

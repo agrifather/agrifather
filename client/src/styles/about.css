@@ -1,0 +1,184 @@
+.about-page {
+  background: #f6f8f5;
+}
+
+/* HERO */
+.about-hero {
+  height: 55vh;
+  background: url("/images/seed.webp") center/cover no-repeat;
+  position: relative;
+}
+
+.about-hero-overlay {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  padding: 80px;
+  justify-content: center;
+}
+
+.about-hero-overlay h1 {
+  color: white;
+  font-size: 60px;
+  font-weight: 600;
+}
+
+/* SECTION LAYOUT */
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 70px 80px;
+  background-color: #e7ebe7;
+  width: 80%;
+  justify-content: center;
+  justify-self: center;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.about-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.about-text p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.about-text ul {
+  margin-top: 10px;
+}
+
+.about-text li {
+  margin-bottom: 8px;
+  color: #444;
+}
+
+/* IMAGE */
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* GLOBAL SECTION */
+
+.about-global h2 {
+  /* color: #2e7d32; */
+  color: #184715;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.about-global p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: #000000;
+}
+
+.about-global img {
+  max-width: 900px;
+  width: 100%;
+  opacity: 0.3;
+}
+
+.about-global {
+  position: relative;
+  min-height: 80vh;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Dark overlay for readability */
+
+.about-global::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle 310px at var(--x, 50%) var(--y, 50%),
+    transparent 0%,
+    rgba(248, 249, 244, 0.882) 60%
+  );
+
+  transition: background 0.08s ease;
+  pointer-events: none;
+}
+
+.about-global:hover::before {
+  transition: background 0.05s ease;
+}
+
+/* Text container */
+.about-overlay {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding: 40px;
+  color: #fff;
+}
+
+.about-overlay h2 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.about-overlay p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+  }
+
+  .about-section.reverse {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  .about-hero-overlay h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .about-section {
+    padding: 50px 20px;
+  }
+  .about-hero-overlay {
+    padding: 20px;
+  }
+  .about-global h2 {
+    font-size: 40px;
+  }
+}

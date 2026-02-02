@@ -1,0 +1,71 @@
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.message-header h4 {
+  color: #2e7d32;
+}
+
+.message-header span {
+  font-size: 13px;
+  color: #777;
+}
+
+.message-text {
+  margin: 10px 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+.message-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.message-footer a {
+  color: #2e7d32;
+  text-decoration: none;
+}
+
+.delete-btn {
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.delete-btn:hover {
+  background: #b71c1c;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}

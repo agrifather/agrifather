@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Play", sans-serif;
+}
+
+body {
+  /* background: #f8f9f4; */
+  background-color: rgb(255, 255, 255);
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer {
+  background: #2e5f2d;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.page {
+  padding: 60px;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2e5f2d;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+body {
+  scrollbar-width: none;
+}
+
+/* Internet Explorer (old) */
+body {
+  -ms-overflow-style: none;
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  visibility: hidden;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}

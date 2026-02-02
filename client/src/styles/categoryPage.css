@@ -1,0 +1,142 @@
+/* PAGE */
+.category-Page {
+  padding: 90px 16px 60px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* TITLE */
+.category-Title {
+  text-align: center;
+  font-size: 34px;
+  color: #2e7d32;
+  margin-bottom: 50px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+/* SECTIONS */
+.category-Section {
+  margin-bottom: 70px;
+}
+
+.category-Section h2 {
+  font-size: 24px;
+  color: #1b5e20;
+  margin-bottom: 24px;
+  border-left: 5px solid #2e7d32;
+  padding-left: 12px;
+}
+
+/* CARD */
+.cardBox {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.cardBox:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+}
+
+.cardBox img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+/* CARD CONTENT */
+.card-Content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-Content h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  color: #222;
+}
+
+.author {
+  font-size: 13px;
+  color: #666;
+}
+
+/* BUTTONS */
+.btnPrimary,
+.btnSecondary {
+  margin-top: auto;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.2s ease;
+   background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.btnSecondary:hover {
+  background: #2e7d32;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btnPrimary:hover {
+  background: #2e7d32;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* EMPTY + LOADING */
+.empty-Text {
+  color: #777;
+  font-size: 15px;
+  text-align: center;
+}
+
+.loadingBox {
+  text-align: center;
+  margin-top: 120px;
+  font-size: 18px;
+  color: #2e7d32;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .category-Title {
+    font-size: 28px;
+  }
+
+  .category-Section h2 {
+    font-size: 20px;
+  }
+
+  .cardBox img {
+    height: 170px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-Page {
+    padding: 80px 12px 50px;
+  }
+
+  .gridBox {
+    gap: 20px;
+  }
+
+  .card-Content h3 {
+    font-size: 16px;
+  }
+}

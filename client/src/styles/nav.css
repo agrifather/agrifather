@@ -1,0 +1,147 @@
+/* OFFSET FOR FIXED NAVBAR */
+body {
+  padding-top: 70px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: #2e5f2d;
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 1000;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* CONTAINER */
+.navbar-container {
+  max-width: 1200px;
+  height: 100%;
+  margin: auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.navbar-logo a {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* LINKS (DESKTOP) */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* LINK */
+.navbar-links a {
+  position: relative;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #f6ff00;
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #f6ff00;
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  width: 100%;
+}
+
+.navbar-links a.active {
+  color: #f6ff00;
+  font-weight: 600;
+}
+
+/* BUTTONS */
+.nav-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.login-btn {
+  color: rgb(255, 255, 255);
+}
+
+.logout-btn {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+/* BURGER */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.burger span {
+  width: 26px;
+  height: 3px;
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 900px) {
+  .burger {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #2e5f2d;
+    flex-direction: column;
+    gap: 18px;
+    padding: 25px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-links.show {
+    transform: translateY(0);
+  }
+
+  .navbar-links a,
+  .nav-btn {
+    font-size: 16px;
+  }
+}

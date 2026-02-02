@@ -1,0 +1,139 @@
+.categories-page {
+  background: #f6f8f5;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.categories-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1605000797499-95a51c5269ae")
+      center/cover no-repeat;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+}
+
+.categories-hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 15px;
+}
+
+/* GRID / CONTAINER */
+.categories-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* CARD BASE */
+.category-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: 4px solid white;
+  height: 300px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY REFINEMENT */
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  color: white;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+}
+
+.category-overlay h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.category-overlay button {
+  background: #fbc02d;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  font-weight: 700;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* --- RESPONSIVE QUERIES --- */
+
+@media (min-width: 1024px) {
+  .category-card {
+    position: sticky;
+    top: 100px;
+  }
+  .categories-grid {
+    padding-bottom: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categories-hero {
+    padding: 60px 20px;
+  }
+
+  .categories-grid {
+    padding: 40px 15px;
+    gap: 30px;
+  }
+
+  .category-card {
+    height: 250px;
+    border-width: 2px;
+  }
+
+  .category-overlay h2 {
+    font-size: 24px;
+  }
+
+  .category-overlay p {
+    font-size: 13px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-hero h1 {
+    font-size: 28px;
+  }
+
+  .category-card {
+    height: 220px;
+  }
+}

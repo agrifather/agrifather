@@ -1,0 +1,197 @@
+/* ================= ADMIN DASHBOARD ================= */
+
+.admin-dashboard {
+  min-height: 85vh;
+  padding: 60px 80px;
+  background: #f6f8f5;
+}
+
+/* HEADER */
+.admin-header {
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  font-size: 40px;
+  color: #2e7d32;
+}
+
+.admin-header p {
+  color: #555;
+  margin-top: 8px;
+}
+
+/* ================= ADMIN CARDS ================= */
+
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.admin-card {
+  background: white;
+  border-radius: 14px;
+  padding: 30px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid #2e7d32;
+}
+
+.admin-card h2 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.admin-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.admin-card:hover {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* ================= MANAGE LIST ================= */
+
+.manage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.manage-item {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.manage-item h4 {
+  margin-bottom: 4px;
+}
+
+.manage-item p {
+  font-size: 13px;
+  color: #777;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ================= BUTTONS ================= */
+
+.edit-btn {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.edit-btn:hover {
+  background: #1b5e20;
+}
+
+.delete-btn {
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.delete-btn:hover {
+  background: #b71c1c;
+}
+
+/* ================= ADMIN FORMS ================= */
+
+.admin-page {
+  padding: 70px 80px;
+  background: #f6f8f5;
+  min-height: 90vh;
+}
+
+.admin-subtitle {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.admin-card label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+}
+
+.admin-card input,
+.admin-card textarea,
+.admin-card select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.admin-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-btn {
+  background: #2e7d32;
+  color: white;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .admin-dashboard {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .admin-page {
+    padding: 70px 20px;
+  }
+}
+
+@media (max-width: 370px) {
+  .edit-btn {
+    padding: 4px 10px;
+  }
+  .delete-btn {
+    padding: 4px 10px;
+  }
+  .actions {
+    gap: 5px;
+  }
+  .manage-item {
+    padding: 20px 15px;
+  }
+  .save-btn {
+    padding: 6px 13px;
+  }
+}
