@@ -13,6 +13,7 @@ import Terms from "../pages/Terms";
 import News from "../pages/News";
 
 import ProtectedAdmin from "../context/ProtectedAdmin";
+import ProtectedRoute from "../context/ProtectedRoute";
 import AdminDashboard from "../pages/AdminDashboard";
 import AddBlog from "../pages/AddBlog";
 import AddVideo from "../pages/AddVideo";
@@ -40,13 +41,23 @@ export default function AppRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/privacy-policy" element={<Privacy />} />
       <Route path="/terms" element={<Terms />} />
-      <Route path="/news" element={<News />} />
+      
       <Route path="/category/:type" element={<CategoryPage />} />
 
       <Route
+        path="/news"
+        element={
+          <ProtectedRoute>
+            <News />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/blogs/:id"
         element={
+          <ProtectedRoute>
             <BlogSingle />
+          </ProtectedRoute>
         }
       />
       
