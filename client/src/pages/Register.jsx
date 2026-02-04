@@ -14,10 +14,12 @@ export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [step, setStep] = useState(1);
   const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const sendOtp = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
     try {
       await axios.post(`${API_BASE_URL}/auth/send-otp`, {
         email: identifier,
@@ -26,11 +28,14 @@ export default function Register() {
       alert("OTP sent successfully");
     } catch (err) {
       alert(err.response?.data?.message || "Failed to send OTP");
+    } finally {
+      setLoading(false); // Stop loading regardless of success/fail
     }
   };
 
   const verifyAndRegister = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
     try {
       await axios.post(`${API_BASE_URL}/auth/verify-otp-register`, {
         name,
@@ -43,6 +48,8 @@ export default function Register() {
       navigate("/login");
     } catch (err) {
       alert(err.response?.data?.message || "Registration failed");
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -105,8 +112,14 @@ export default function Register() {
             </>
           )}
 
-          <button className="auth-btn">
-            {step === 1 ? "Send OTP" : "Verify & Register"}
+          <button className="auth-btn" disabled={loading}>
+            {loading ? (
+              <div className="spinner"></div>
+            ) : step === 1 ? (
+              "Send OTP"
+            ) : (
+              "Verify & Register"
+            )}
           </button>
 
           <p className="auth-footer">

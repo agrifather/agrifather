@@ -12,6 +12,9 @@ export default function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [show, setShow] = useState(false);
+  
+  // 1. Initialize loading state
+  const [loading, setLoading] = useState(false);
 
   const resetPassword = async (e) => {
     e.preventDefault();
@@ -19,6 +22,8 @@ export default function ResetPassword() {
     if (newPassword !== confirmPassword) {
       return alert("Passwords do not match");
     }
+
+    setLoading(true); // 2. Start spinner
 
     try {
       await axios.post(`${API_BASE_URL}/auth/forgot-password/reset`, {
@@ -31,6 +36,8 @@ export default function ResetPassword() {
       navigate("/login");
     } catch (err) {
       alert(err.response?.data?.message || "Reset failed");
+    } finally {
+      setLoading(false); // 3. Stop spinner
     }
   };
 
@@ -69,7 +76,10 @@ export default function ResetPassword() {
             <label>Confirm Password</label>
           </div>
 
-          <button className="auth-btn">Reset Password</button>
+          {/* 4. Update button JSX */}
+          <button className="auth-btn" disabled={loading}>
+            {loading ? <div className="spinner"></div> : "Reset Password"}
+          </button>
         </form>
       </div>
     </div>

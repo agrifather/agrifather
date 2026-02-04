@@ -25,7 +25,7 @@ export default function AddBlog() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       await axios.post(`${API_BASE_URL}/blogs`, form, {
         headers: {

@@ -194,3 +194,32 @@
 
 
 
+/* The button should remain the same size */
+.auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 45px; /* Adjust based on your design */
+  cursor: pointer;
+}
+
+.auth-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* The Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff; /* The "moving" part of the circle */
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

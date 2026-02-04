@@ -8,15 +8,20 @@ import { API_BASE_URL } from "../config/api";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function Login() {
-  const [identifier, setIdentifier] = useState(""); // email or phone
+  const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
+  
+  // 1. Add the loading state
+  const [loading, setLoading] = useState(false); 
 
+  const navigate = useNavigate();
   const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true); // 2. Start loading
+    
     try {
       const res = await axios.post(`${API_BASE_URL}/auth/login`, {
         identifier,
@@ -26,13 +31,15 @@ export default function Login() {
       login(res.data.token);
       navigate("/");
     } catch (err) {
-      alert("Invalid credentials");
+      // 3. Inform the user and reset loading
+      alert(err.response?.data?.message || "Invalid credentials");
+    } finally {
+      setLoading(false); // 4. Stop loading whether success or fail
     }
   };
 
   return (
     <div className="auth-page">
-      {/* LEFT */}
       <div className="auth-left">
         <h1>AgriFather</h1>
         <p>
@@ -41,7 +48,6 @@ export default function Login() {
         </p>
       </div>
 
-      {/* RIGHT */}
       <div className="auth-right">
         <form className="auth-card" onSubmit={handleLogin}>
           <h2>Welcome Back</h2>
@@ -68,7 +74,10 @@ export default function Login() {
             </span>
           </div>
 
-          <button className="auth-btn">Login</button>
+          {/* 5. Update the button to show the spinner */}
+          <button className="auth-btn" disabled={loading}>
+            {loading ? <div className="spinner"></div> : "Login"}
+          </button>
 
           <p className="auth-footer">
             Don’t have an account? <Link to="/register">Register</Link>

@@ -8,10 +8,15 @@ export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState(1);
+  
+  // 1. Add the loading state
+  const [loading, setLoading] = useState(false);
+  
   const navigate = useNavigate();
 
   const sendOtp = async (e) => {
     e.preventDefault();
+    setLoading(true); // 2. Start loading
     try {
       await axios.post(
         `${API_BASE_URL}/auth/forgot-password/send-otp`,
@@ -21,17 +26,16 @@ export default function ForgotPassword() {
       setStep(2);
     } catch (err) {
       alert(err.response?.data?.message || "Failed to send OTP");
+    } finally {
+      setLoading(false); // 3. Stop loading
     }
   };
 
   const verifyOtp = async (e) => {
     e.preventDefault();
-    try {
-      // OTP verification happens implicitly in reset step
-      navigate("/reset-password", { state: { email, otp } });
-    } catch {
-      alert("Invalid OTP");
-    }
+    // No axios call here since you're verifying in the next page,
+    // but we can add a slight delay or keep it instant.
+    navigate("/reset-password", { state: { email, otp } });
   };
 
   return (
@@ -69,8 +73,13 @@ export default function ForgotPassword() {
             </div>
           )}
 
-          <button className="auth-btn">
-            {step === 1 ? "Send OTP" : "Verify OTP"}
+          {/* 4. Use the loading state to show the spinner */}
+          <button className="auth-btn" disabled={loading}>
+            {loading ? (
+              <div className="spinner"></div>
+            ) : (
+              step === 1 ? "Send OTP" : "Verify OTP"
+            )}
           </button>
         </form>
       </div>
