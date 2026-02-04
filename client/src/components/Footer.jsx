@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 import "../styles/footer.css";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube} from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaXTwitter,
+  FaYoutube,
+  FaLinkedinIn,
+} from "react-icons/fa6";
 
-const VITE_TWITTER_USER = import.meta.env.VITE_TWITTER_USER || "AgriFather";
-const VITE_FACEBOOK_USER = import.meta.env.VITE_FACEBOOK_USER || "AgriFather";
-const VITE_INSTAGRAM_USER = import.meta.env.VITE_INSTAGRAM_USER || "agri.father";
-const VITE_YOUTUBE_USER = import.meta.env.VITE_YOUTUBE_USER || "@AgriFather";
+const VITE_TWITTER_USER = import.meta.env.VITE_TWITTER_USER;
+const VITE_FACEBOOK_USER = import.meta.env.VITE_FACEBOOK_USER;
+const VITE_INSTAGRAM_USER = import.meta.env.VITE_INSTAGRAM_USER;
+const VITE_YOUTUBE_USER = import.meta.env.VITE_YOUTUBE_USER;
+const VITE_LINKEDIN_USER = import.meta.env.VITE_LINKEDIN_USER;
 
 export default function Footer() {
   console.log("All Env Vars:", import.meta.env);
@@ -14,10 +21,13 @@ export default function Footer() {
       <div className="footer-container">
         {/* BRAND */}
         <div className="footer-brand">
-          
-          <img src="/images/agri-whole.png" alt="logo" style={{width : "100px"}}/>
-          <h3 style={{fontWeight : "900"}}>AgriFather</h3>
-          <p style={{marginTop : "10px"}}>
+          <img
+            src="/images/agri-whole.png"
+            alt="logo"
+            style={{ width: "100px" }}
+          />
+          <h3 style={{ fontWeight: "900" }}>AgriFather</h3>
+          <p style={{ marginTop: "10px" }}>
             Empowering farmers with <br />
             <strong>knowledge & technology</strong>.
           </p>
@@ -28,10 +38,10 @@ export default function Footer() {
           <h4>Platform Features</h4>
           <ul>
             <li>Smart Farming Insights</li>
-            <li>Crop Advisory</li>
-            <li>Weather Forecast</li>
-            <li>Soil Health Analysis</li>
-            <li>Market Price Updates</li>
+            <li>Crop Care Advisory</li>
+            <li>Weather Information</li>
+            <li>Agricultural news</li>
+            <li>Market Price Information</li>
           </ul>
         </div>
 
@@ -102,7 +112,7 @@ export default function Footer() {
               rel="noreferrer"
               aria-label="Twitter"
             >
-              <FaTwitter />
+              <FaXTwitter />
             </a>
 
             <a
@@ -112,6 +122,16 @@ export default function Footer() {
               aria-label="YouTube"
             >
               <FaYoutube />
+            </a>
+
+            <a
+              href={`https://www.linkedin.com/in/${VITE_LINKEDIN_USER}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="linkedin-link"
+            >
+              <FaLinkedinIn />
             </a>
           </div>
         </div>

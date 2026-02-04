@@ -1,7 +1,13 @@
 import "../styles/contacts.css";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaXTwitter,
+  FaYoutube,
+  FaLinkedinIn,
+} from "react-icons/fa6";
 import { API_BASE_URL } from "../config/api";
 
 import {
@@ -11,6 +17,13 @@ import {
   FiGlobe,
   FiPhone,
 } from "react-icons/fi";
+
+const VITE_TWITTER_USER = import.meta.env.VITE_TWITTER_USER;
+const VITE_FACEBOOK_USER = import.meta.env.VITE_FACEBOOK_USER;
+const VITE_INSTAGRAM_USER = import.meta.env.VITE_INSTAGRAM_USER;
+const VITE_YOUTUBE_USER = import.meta.env.VITE_YOUTUBE_USER;
+const VITE_LINKEDIN_USER = import.meta.env.VITE_LINKEDIN_USER;
+
 
 // 1. Reusable ScrollReveal Wrapper for UI Lazy Loading
 function ScrollReveal({ children }) {
@@ -133,9 +146,9 @@ export default function Contact() {
               WhatsApp Us
             </a>
 
-            <div className="social-icons" style={{marginTop : "20px"}}>
+            <div className="social-icons" style={{ marginTop: "20px" }}>
               <a
-                href="https://www.facebook.com/AgriFather"
+                href={`https://www.facebook.com/${VITE_FACEBOOK_USER}`}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -144,7 +157,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://www.instagram.com/AgriFather"
+                href={`https://www.instagram.com/${VITE_INSTAGRAM_USER}`}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -153,21 +166,30 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://twitter.com/AgriFather"
+                href={`https://twitter.com/${VITE_TWITTER_USER}`}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Twitter"
               >
-                <FaTwitter />
+                <FaXTwitter />
               </a>
 
               <a
-                href="https://www.youtube.com/@AgriFather"
+                href={`https://www.youtube.com/${VITE_YOUTUBE_USER}`}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="YouTube"
               >
                 <FaYoutube />
+              </a>
+              <a
+                href={`https://www.linkedin.com/in/${VITE_LINKEDIN_USER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="linkedin-link"
+              >
+                <FaLinkedinIn />
               </a>
             </div>
           </div>
@@ -204,7 +226,7 @@ export default function Contact() {
             <button className="send-btn" onClick={handleSubmit}>
               Send Message
             </button>
-            
+
             {success && (
               <p style={{ color: "green", marginTop: "10px" }}>{success}</p>
             )}

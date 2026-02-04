@@ -42,7 +42,7 @@ export default function Privacy() {
         <ScrollReveal>
           <div className="privacy-column" >
             <h2 style={{textAlign:"left"}}>Privacy Policy</h2>
-            <h4>Last updated: {new Date().toLocaleDateString()}</h4>
+            <h4>Last updated: {new Date().toLocaleDateString('en-GB')}</h4>
             <br />
 
             <p style={{textAlign:"left"}}>
