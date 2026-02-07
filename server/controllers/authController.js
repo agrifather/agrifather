@@ -3,7 +3,6 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { sendEmailOtp } from "../utils/sendEmailOtp.js";
-import nodemailer from "nodemailer";
 
 /* ======================================================
    SEND OTP (EMAIL ONLY)
